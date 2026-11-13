@@ -102,7 +102,7 @@ node scripts/timelog.mjs report 7
 
 ## Status
 
-Built November 2026. Not yet run on live leads; the time-saved numbers will be added
+Being rolled out on live leads. The time-saved numbers will be added
 here from `timelog.mjs` once there is a full week of baseline and agent data.
 
 ## License
