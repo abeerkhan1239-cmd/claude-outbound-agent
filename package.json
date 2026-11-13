@@ -1,0 +1,15 @@
+{
+  "name": "claude-outbound-agent",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "AI outbound agent built on Claude Code: ContactOut enrichment, site audit, guarded drafting, Gmail + Google Sheets.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "audit": "node scripts/audit.mjs",
+    "contactout": "node scripts/contactout.mjs",
+    "lint-copy": "node scripts/lint-copy.mjs",
+    "timelog": "node scripts/timelog.mjs"
+  },
+  "license": "MIT"
+}

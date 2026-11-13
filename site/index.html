@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Outbound Agent · Abeer Khan</title>
+<meta name="description" content="An AI outbound agent built on Claude Code for Adcelerate Media: ContactOut enrichment, website audits, guarded drafting, Gmail and Google Sheets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E7EDE9; --card:#F6F9F7; --ink:#0B3C36; --ink-2:#3E5F5A; --mint:#7AD8C7; --mint-soft:#CDEFE7;
+  --line:#C9D6CF; --warn:#B4532A;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.02em;line-height:1.1}
+a{color:inherit}
+header{padding:28px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.tag{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:600;font-size:15px}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.hero{padding:48px 0 56px}
+.hero h1{font-size:clamp(38px,6.5vw,72px);max-width:880px}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--mint) 62%)}
+.hero p{font-size:clamp(17px,2vw,20px);color:var(--ink-2);max-width:680px;margin:22px 0 30px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+section{padding:44px 0}
+section>h2{font-size:clamp(28px,4vw,40px);margin-bottom:10px}
+.lead{color:var(--ink-2);max-width:680px;margin-bottom:28px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
+.card h3{font-size:20px;margin-bottom:8px}
+.card p{color:var(--ink-2);font-size:15px}
+.k{font-family:"Space Grotesk";font-size:13px;font-weight:600;color:var(--ink);background:var(--mint-soft);border-radius:8px;padding:3px 9px;display:inline-block;margin-bottom:14px}
+.flow{list-style:none;padding:0;display:grid;gap:10px;counter-reset:s}
+.flow li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px}
+.flow li::before{content:counter(s);width:44px;height:44px;border-radius:14px;background:var(--ink);color:var(--mint);font:600 18px "Space Grotesk";display:grid;place-items:center}
+.flow b{display:block;font-size:16px}
+.flow span{color:var(--ink-2);font-size:15px}
+.flow .human::before{background:var(--mint);color:var(--ink)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ex{border-radius:18px;padding:18px;font-size:15px}
+.ex.ok{background:var(--mint-soft)}
+.ex.no{background:#F3E2D9}
+.ex small{display:block;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.ex.no small{color:var(--warn)}
+code{font:13.5px ui-monospace,SFMono-Regular,Menlo,monospace;background:#DCE5E0;border-radius:6px;padding:1px 6px}
+.stack{display:flex;flex-wrap:wrap;gap:8px}
+.stack span{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;font-size:14px;font-weight:500}
+.status{background:var(--ink);color:#E7EDE9;border-radius:26px;padding:32px}
+.status h2{color:#fff;font-size:clamp(24px,3.4vw,32px);margin-bottom:10px}
+.status p{color:#B9CEC8;max-width:720px}
+.status code{background:#174C45;color:var(--mint)}
+footer{padding:40px 0 56px;color:var(--ink-2);font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:640px){.split{grid-template-columns:1fr}.hero{padding:24px 0 36px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="tag">Case study · Adcelerate Media · 2026</span>
+    <a class="btn ghost" href="https://github.com/abeerkhan1239-cmd/claude-outbound-agent">View code on GitHub</a>
+  </header>
+
+  <div class="hero">
+    <h1>An outbound agent that does the research and <em>leaves the sending to a person.</em></h1>
+    <p>Built on Claude Code for Adcelerate Media, a growth agency for clinics and supplement brands. It finds the decision maker, audits their website, writes a first message specific enough to get a reply, and saves it as a draft. A person sends it.</p>
+    <div class="row">
+      <a class="btn" href="https://github.com/abeerkhan1239-cmd/claude-outbound-agent">Source code</a>
+      <a class="btn ghost" href="#how">How it works</a>
+    </div>
+  </div>
+
+  <section>
+    <h2>The problem</h2>
+    <p class="lead">Good cold outreach is slow. Generic outreach is ignored. Each lead needs three things done by hand before a message is worth sending.</p>
+    <div class="grid g3">
+      <div class="card"><span class="k">01</span><h3>Find the right person</h3><p>Clinics and small brands rarely list who makes marketing decisions. Owner, medical director or founder has to be found and verified.</p></div>
+      <div class="card"><span class="k">02</span><h3>Look at their funnel</h3><p>How do they take bookings? Are they tracking ads? Do they run any? The first line of a good message comes from here.</p></div>
+      <div class="card"><span class="k">03</span><h3>Write it in one voice</h3><p>Messages go out from the co-founder, a former physician. They must sound like her and never overclaim.</p></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How it works</h2>
+    <p class="lead">One Claude Code skill runs the pipeline. Small Node scripts do the parts that must be deterministic. Gmail and Google Sheets connectors carry the output.</p>
+    <ol class="flow">
+      <li><div><b>Read new leads</b><span>Rows with <code>status = new</code> from the Leads Google Sheet.</span></div></li>
+      <li><div><b>Qualify</b><span>Checked against the ICP: dental, med spa and functional-medicine clinics, and Shopify health brands. Misfits are marked <code>skip</code> with a reason.</span></div></li>
+      <li><div><b>Find the decision maker</b><span>ContactOut Decision Makers API by domain, then a work email revealed for exactly one person. Only Verified addresses are used.</span></div></li>
+      <li><div><b>Audit the funnel</b><span>Booking vendor, tracking pixels, visible offers and site platform, plus live ads in the Meta Ad Library for brands.</span></div></li>
+      <li><div><b>Draft three messages</b><span>LinkedIn connect note, follow-up DM and email, each hooked on one finding.</span></div></li>
+      <li><div><b>Guardrail check</b><span><code>lint-copy.mjs</code> rejects drafts that break a rule. The agent rewrites until they pass.</span></div></li>
+      <li><div><b>Save as drafts</b><span>Email to Gmail drafts, LinkedIn texts into the sheet. Status moves to <code>drafted</code>.</span></div></li>
+      <li class="human"><div><b>A person reviews and sends</b><span>Nothing goes out automatically. LinkedIn sends stay manual to protect the sender's profile.</span></div></li>
+      <li><div><b>Triage replies</b><span>Replies are labelled interested, not now, wrong person or unsubscribe. Interested prospects get a drafted answer with the booking link.</span></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The main safety rule</h2>
+    <p class="lead">The audit tags every finding as <b>measured</b> (seen in the page) or <b>unmeasured</b> (an absence in static HTML). Site builders inject scripts at runtime, so absences can be wrong. Only measured findings may appear in a message.</p>
+    <div class="split">
+      <div class="ex ok"><small>Allowed: measured</small>"Saw you book through Boulevard. Do most new patients come from Instagram or Google?"</div>
+      <div class="ex no"><small>Blocked: unmeasured</small>"Your site doesn't have a Meta Pixel, so you're not tracking your ads."</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Guardrails in code, not just in the prompt</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Copy linter</h3><p>Blocks em dashes, guarantees and "10x" claims, filler phrases, claims that something is missing, inaccurate credentials ("former physician", never a current title), and drafts over each channel's length limit.</p></div>
+      <div class="card"><h3>Proof whitelist</h3><p>The agent can only cite results listed in <code>config/proof.md</code>. An empty file means no results claims at all.</p></div>
+      <div class="card"><h3>Credit discipline</h3><p>Decision makers are listed without revealing contacts. Email credits are spent on one chosen person per company.</p></div>
+      <div class="card"><h3>People own the send</h3><p>The agent never sends mail and never marks a lead as sent. Only a person can move a row to <code>sent</code>.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Stack</h2>
+    <div class="stack">
+      <span>Claude Code (skill + scheduled task)</span><span>ContactOut API</span><span>Gmail connector</span><span>Google Sheets connector</span><span>Built-in browser (Meta Ad Library)</span><span>Node.js, zero dependencies</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="status">
+      <h2>Status and how impact is measured</h2>
+      <p>Built in November 2026, being rolled out on live leads. Time saved is logged rather than estimated: <code>timelog.mjs</code> records minutes per lead by hand (baseline) and with the agent, then reports hours saved per week. The result will be published here once a full week of data exists.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Built by Abeer Khan for Adcelerate Media</span>
+    <a href="https://github.com/abeerkhan1239-cmd/claude-outbound-agent">github.com/abeerkhan1239-cmd/claude-outbound-agent</a>
+  </footer>
+</div>
+</body>
+</html>
